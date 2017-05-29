@@ -2,6 +2,7 @@ from craigslist import CraigslistHousing, requests_get
 import json
 import datetime
 from bs4 import BeautifulSoup
+import os
 
 def get_more_data(self, result):
   response = requests_get(result['url'], logger=self.logger)
@@ -117,7 +118,7 @@ legit_parkings = set([
   "no parking"
 ])
 
-cl_h = CraigslistHousing(site='sfbay', area='sfc', category='apa',
+cl_h = CraigslistHousing(site=os.environ['SITE'], area=os.environ['AREA'], category=os.environ['CATEGORY'],
                          filters={'has_image': 1})
 
 results = []
