@@ -129,7 +129,7 @@ try:
 # If anything goes wrong, including me killing the script, it will print all the results it has
 finally:
   time = datetime.datetime.now().strftime('%Y-%m-%d--%H-%M-%S')
-  f = open(time+'.json', 'w')
+  f = open('/data/' + time + '.json', 'w')
   f.write(json.dumps(results, sort_keys=True,
                               indent=2,
                               separators=(',', ': ')))
